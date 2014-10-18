@@ -1,0 +1,5 @@
+load data
+inputfile '@@.lod'
+format unload
+into table @@;
+

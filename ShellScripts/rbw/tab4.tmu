@@ -1,0 +1,5 @@
+load data
+inputfile 'tab4.lod'
+format unload
+into table tab4;
+
