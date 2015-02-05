@@ -1,0 +1,29 @@
+# run spark examples
+bin/run-example SparkPi 10
+
+# run spark interactive Scala shell locally
+bin/spark-shell --master local[2]
+
+# run spark interactive Python interpreter locally
+bin/pyspark --master local[2]
+
+# run Python examples
+bin/spark-submit examples/src/main/python/pi.py 10
+
+# start a master daemon
+sbin/start-master.sh
+
+# start a worker
+bin/spark-class org.apache.spark.deploy.worker.Worker spark://mercury:7077
+
+# start a master and a number of slaves
+bin/start-all.sh
+
+# config file for environment variables
+conf/spark-env.sh
+
+# start an interactiv shell, connecting to standalone cluster, executing in only 1 core
+bin/spark-shell --master spark://mercury:7077 --total-executor-cores 1
+
+# kill an application
+bin/spark-class org.apache.spark.deploy.Client kill <master url> <driver ID>
