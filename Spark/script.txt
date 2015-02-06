@@ -27,3 +27,10 @@ bin/spark-shell --master spark://mercury:7077 --total-executor-cores 1
 
 # kill an application
 bin/spark-class org.apache.spark.deploy.Client kill <master url> <driver ID>
+
+# submit a scala application to run
+bin/spark-submit --class org.apache.spark.examples.SparkPi --master spark://mercury:7077 file:///home/techie/Apache/spark/lib/spark-examples-1.2.0-hadoop2.4.0.jar 100
+
+# submit a python application to run
+bin/spark-submit --master spark://mercury:7077 file:///home/techie/Apache/spark/examples/src/main/python/pi.py 100
+
