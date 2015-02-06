@@ -64,6 +64,7 @@ SPARK_MASTER_OPTS="-Dspark.deploy.defaultCores=2"
 SPARK_WORKER_CORES=1
 SPARK_WORKER_MEMORY=2g
 SPARK_WORKER_INSTANCES=2
+SPARK_WORKER_OPTS="-Dspark.worker.cleanup.enabled=true -Dspark.worker.cleanup.appDataTtl=86400"
 
 # EnVar to set high avaliability to FILESYSTEM (ZOOKEEPER, NONE(default)
 SPARK_DAEMON_JAVA_OPTS="-Dspark.deploy.recoveryMode=FILESYSTEM -Dspark.deploy.recoveryDirectory=$SPARK_HOME/master"
