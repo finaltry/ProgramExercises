@@ -14,7 +14,7 @@ bin/spark-submit examples/src/main/python/pi.py 10
 sbin/start-master.sh
 
 # start a worker
-bin/spark-class org.apache.spark.deploy.worker.Worker spark://mercury:7077
+bin/spark-class org.apache.spark.deploy.worker.Worker spark://master:7077
 
 # start a master and a number of slaves
 bin/start-all.sh
@@ -23,14 +23,14 @@ bin/start-all.sh
 conf/spark-env.sh
 
 # start an interactiv shell, connecting to standalone cluster, executing in only 1 core
-bin/spark-shell --master spark://mercury:7077 --total-executor-cores 1
+bin/spark-shell --master spark://master:7077 --total-executor-cores 4 --executor-memory 2G
 
 # kill an application
 bin/spark-class org.apache.spark.deploy.Client kill <master url> <driver ID>
 
 # submit a scala application to run
-bin/spark-submit --class org.apache.spark.examples.SparkPi --master spark://mercury:7077 file:///home/techie/Apache/spark/lib/spark-examples-1.2.0-hadoop2.4.0.jar 100
+bin/spark-submit --class org.apache.spark.examples.SparkPi --master spark://master:7077 file:///var/spark/jars/spark-examples-1.2.0-hadoop2.4.0.jar 100
 
 # submit a python application to run
-bin/spark-submit --master spark://mercury:7077 file:///home/techie/Apache/spark/examples/src/main/python/pi.py 100
+bin/spark-submit --master spark://master:7077 file:///var/spark/examples/src/main/python/pi.py 100
 
